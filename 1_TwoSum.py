@@ -1,3 +1,9 @@
+# 1. Two Sum
+# Solved
+# Easy
+# Topics
+# Companies
+# Hint
 # Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -21,23 +27,21 @@
 # Output: [0,1]
  
 
-# Constraints:
+#-----BRUTE FORCE----#
 
-# 2 <= nums.length <= 104
-# -109 <= nums[i] <= 109
-# -109 <= target <= 109
-# Only one valid answer exists.
- 
-
-# Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
-
-class Solution:
-    def twoSum(self , nums , target):
-        num_dict = {}
-
-        for i , num in enumerate(nums):
-            if (target - num) in num_dict:
-                return [num_dict[target-num] , i]
-            num_dict[num] = i
-        return[] 
+def twoSum(nums, target):
+    for i in range(len(nums)):
+        for j in range(len(nums)):
+            if i == j:
+                continue
+            if nums[i] + nums[j] == target:
+                return[i,j]
     
+def twoSum2(nums , target):
+    hmap = {}
+    for i, num in enumerate(nums):
+        complement = target - num 
+        if complement in hmap:
+            return [hmap[complement], i]
+        hmap[num]= i
+
