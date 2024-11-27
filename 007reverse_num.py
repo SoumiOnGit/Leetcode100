@@ -17,5 +17,4 @@ Input: x = 120
 Output: 21
 
 
-
 '''
